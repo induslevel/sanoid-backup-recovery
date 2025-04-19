@@ -23,6 +23,7 @@ chmod +x sync-zfs-backups.sh
 cp sync-zfs-backups.sh /usr/local/bin/
 
 # Copy sanoid configuration
+mkdir /etc/sanoid/
 cp sanoid.conf /etc/sanoid/
 
 # Copy systemd service and timer files
