@@ -2,6 +2,9 @@
 
 set -e
 
+# Get the current machine's hostname
+HOSTNAME=$(hostname)
+
 sync_dataset() {
     SRC="$1"
     DST="$2"
@@ -16,9 +19,14 @@ sync_dataset() {
     /usr/sbin/syncoid --recursive --no-privilege-elevation "$SRC" "$DST"
 }
 
+# Auto-detect bpool dataset
+BPOOL_SRC=$(zfs list -H -o name | grep "^bpool/BOOT/")
+# Auto-detect rpool dataset
+RPOOL_SRC=$(zfs list -H -o name | grep "^rpool/ROOT/")
+
 # Sync bpool
-sync_dataset "bpool/BOOT/ubuntu_l8whg0" "raidpool/rpool-backup/BOOT/ubuntu_l8whg0"
+sync_dataset "$BPOOL_SRC" "raidpool/zfs-backups/${HOSTNAME}/${BPOOL_SRC}"
 
 # Sync rpool
-sync_dataset "rpool/ROOT/ubuntu_l8whg0" "raidpool/rpool-backup/ROOT/ubuntu_l8whg0"
+sync_dataset "$RPOOL_SRC" "raidpool/zfs-backups/${HOSTNAME}/${RPOOL_SRC}"
 
