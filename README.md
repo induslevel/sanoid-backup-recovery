@@ -40,6 +40,6 @@ systemctl status sanoid.service
 systemctl daemon-reload
 systemctl enable syncoid-backup.timer
 systemctl enable syncoid-backup.service
-systemctl start syncoid-backup.service
+systemctl start syncoid-backup.service &
 ```
 
