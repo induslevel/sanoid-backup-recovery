@@ -1,0 +1,12 @@
+[Unit]
+Description=ZFS Backup with syncoid
+After=network-online.target
+
+[Service]
+Type=oneshot
+#ExecStart=/usr/local/bin/sync-rpool.sh
+#ExecStart=/usr/local/bin/sync-bpool.sh
+ExecStart=/usr/local/bin/sync-zfs-backups.sh
+[Install]
+WantedBy=multi-user.target
+
