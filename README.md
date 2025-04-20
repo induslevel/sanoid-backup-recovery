@@ -1,3 +1,7 @@
+## Warning 
+There is a bug in grub 2.06 that will render machines unbootable you configure snapshot of bpool
+https://bugs.launchpad.net/ubuntu/+source/grub2-unsigned/+bug/2051999
+
 ```bash
 # Clone the private repository (use HTTPS or SSH)
 # Option 1: Using HTTPS (you’ll be prompted for username/token)
