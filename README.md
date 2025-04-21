@@ -1,5 +1,5 @@
 ## Warning 
-There is a bug in grub 2.06 that will render machines unbootable you configure snapshot of bpool
+There is a bug in grub 2.06 that will render machines unbootable when you take snapshot of bpool
 https://bugs.launchpad.net/ubuntu/+source/grub2-unsigned/+bug/2051999
 
 ```bash
