@@ -144,4 +144,19 @@ chroot "${SYSROOT}" /bin/bash
 # Update bootloader
 update-initramfs -u -k all
 update-grub
+
+# Exit chroot
+exit 
+
+# Unmount system filesystems
+umount -l "${SYSROOT}/dev"
+umount -l "${SYSROOT}/proc"
+umount -l "${SYSROOT}/sys"
+
+# Export rpool and bpool
+zpool export bpool
+zpool export rpool
+
+# Reboot
+
 ```
